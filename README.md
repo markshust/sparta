@@ -9,5 +9,6 @@ Get eCommerce done.
 ```
 cp .env.dist .env
 composer install
+php bin/setup
 php -S localhost:9000 www/index.php
 ```

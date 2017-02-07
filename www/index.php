@@ -1,8 +1,5 @@
 <?php
-require_once __DIR__.'/../vendor/autoload.php';
-
-$dotenv = new Dotenv\Dotenv(dirname('../'));
-$dotenv->load();
+require_once('loader.php');
 
 $request_uri = ltrim($_SERVER['REQUEST_URI'], '/') ?: 'home';
 

@@ -1,0 +1,19 @@
+#!/usr/bin/php
+<?php
+$is_skip_dbconn = true;
+
+require_once('www/loader.php');
+
+try {
+    $db = new PDO("mysql:host=$db_host;port=$db_port", $db_root_user, $db_root_pass);
+    $db->exec("
+        CREATE DATABASE `$db_name`;
+        CREATE USER '$db_user'@'localhost' IDENTIFIED BY '$db_pass';
+        GRANT ALL ON `$db_name`.* TO '$db_user'@'localhost';
+        FLUSH PRIVILEGES;
+    ") || die(print_r($db->errorInfo(), true));
+} catch (PDOException $e) {
+    die("DB ERROR: $e->getMessage()");
+}
+
+echo 'Database setup complete';
