@@ -13,7 +13,7 @@ try {
         FLUSH PRIVILEGES;
     ") || die(print_r($db->errorInfo(), true));
 } catch (PDOException $e) {
-    die("DB ERROR: $e->getMessage()");
+    die("DB ERROR: $e->getMessage()" . PHP_EOL);
 }
 
-echo 'Database setup complete';
+echo 'Database setup complete' . PHP_EOL;
