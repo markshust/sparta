@@ -48,6 +48,6 @@ class Database
             die("Database Error: $e->getMessage()" . PHP_EOL);
         }   
 
-        return $db;
+        echo 'Database setup complete' . PHP_EOL;
     } 
 }
